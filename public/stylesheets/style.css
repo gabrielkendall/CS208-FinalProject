@@ -1,53 +1,74 @@
+/* Reset */
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
+/* Sections */
+.section-dark {
+  background-color: #0b2e26;
+  padding: 3rem 1rem;
+}
+
+.section-light {
+  background-color: #f4f4f4;
+  padding: 3rem 1rem;
+}
+
+/* Logo container */
 .logo {
   position: relative;
-  text-align: center;
   width: 320px;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
+/* SVG sizing */
 .logo-graphic {
-  height: 200px;
-  width: auto;
   display: block;
+  width: 100%;
+  height: auto;
 }
 
+/* Main script text */
 .logo-name {
   position: absolute;
   left: 50%;
-  top: 62%;
+  top: 78%;
   transform: translate(-50%, -50%);
   margin: 0;
+
   font-family: 'Italianno', cursive;
-  font-size: 3.3rem;
+  font-size: 2.72rem;
   line-height: 1;
+  font-weight: 400;
   white-space: nowrap;
 }
 
+/* Subtitle */
 .logo-since {
   position: absolute;
   left: 50%;
-  top: 79%;
+  top: 88%;
   transform: translate(-50%, -50%);
   margin: 0;
+
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   white-space: nowrap;
 }
 
+/* Color control via currentColor */
 .logo-dark {
-  color: #d8ab43;
+  color: #d8ab43; /* gold */
 }
 
 .logo-light {
-  color: #111111;
+  color: #111111; /* black */
 }
 
+/* Apply color to text */
 .logo-dark .logo-name,
 .logo-dark .logo-since {
   color: #d8ab43;
@@ -57,3 +78,4 @@ body {
 .logo-light .logo-since {
   color: #111111;
 }
+
