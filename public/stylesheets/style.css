@@ -4,14 +4,15 @@ body {
 
 .logo {
   position: relative;
+  text-align: center;
   width: 320px;
   margin: 2rem auto;
 }
 
 .logo-graphic {
+  height: 200px;
+  width: auto;
   display: block;
-  width: 100%;
-  height: auto;
 }
 
 .logo-name {
