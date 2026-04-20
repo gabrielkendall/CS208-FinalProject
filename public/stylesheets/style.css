@@ -2,9 +2,11 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: #f7f7f7;
 }
 
-.main-content {
+.main-content, .menu, .reviews, .contacts {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +19,7 @@ body {
 }
 
 .section-light {
-  background-color: #f4f4f4;
+  background-color: #f7f7f7;
   padding: 1rem 1rem;
 }
 
@@ -92,13 +94,13 @@ body {
   border: 1px #F7C64A;
   border-style: double none none none ;
 }
-table {
+.links table {
   width: 60%;
   margin: 0 auto;
   border-collapse: collapse;
 }
 
-td {
+.links table td {
   width: 25%;
   text-align: center;
   padding: 1rem;
@@ -109,11 +111,49 @@ td {
   font-weight: 400;
 }
 
-td a {
+.links table td a {
   display: block;
   width: 100%;
   height: 100%;
   padding: 1rem;
   text-decoration: none;
   color: inherit;
+}
+
+
+.menu table {
+  width: 60%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.menu table td {
+  width: 33%;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f7f7f7;
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.menu table tr td img {
+  justify-self: center;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;  /* makes it a square */
+  object-fit: cover;
+  padding: 1rem;
+  border-radius: 10%;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.menu table tr td div {
+  justify-self: left;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
 }
