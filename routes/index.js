@@ -17,6 +17,18 @@ router.get('/', function(req, res, next){
   }
 });
 
+router.get('/menu', function(req, res, next) {
+  res.render('menu', { title: 'Menu' });
+});
+
+router.get('/contact', function(req, res, next) {
+  res.render('contact', { title: 'Contact Us' });
+});
+
+router.get('/reviews', function(req, res, next) {
+  res.render('reviews', { title: 'Customer Comments' });
+});
+
 router.post('/create', function (req, res, next) {
     const { task } = req.body;
     try {
