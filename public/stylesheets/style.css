@@ -1,8 +1,58 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+.logo {
+  position: relative;
+  width: 320px;
+  margin: 2rem auto;
+}
+
+.logo-graphic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.logo-name {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: 'Italianno', cursive;
+  font-size: 3.3rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.logo-since {
+  position: absolute;
+  left: 50%;
+  top: 79%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.logo-dark {
+  color: #d8ab43;
+}
+
+.logo-light {
+  color: #111111;
+}
+
+.logo-dark .logo-name,
+.logo-dark .logo-since {
+  color: #d8ab43;
+}
+
+.logo-light .logo-name,
+.logo-light .logo-since {
+  color: #111111;
 }
