@@ -9,7 +9,7 @@ function createDbConnection() {
             host: 'localhost',
             user: 'root',
             password: '12345',
-            database: 'cs208demo'
+            database: 'dountowndonuts'
         });
 
         connection.connect(err => {

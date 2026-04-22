@@ -58,11 +58,49 @@ block content
     //- Main content section ???
     section.reviews
       h1 Customer Comments
-      
+
+      if errorMessage
+        .message.message-error= errorMessage
+
+      if successMessage
+        .message.message-success= successMessage
+
+      form.comments-form(action="/reviews" method="POST")
+        div
+          label(for="name") Name
+          input#name(type="text" name="name" maxlength="100" value=formData.name required)
+
+        div
+          label(for="comment") Comment
+          textarea#comment(name="comment" maxlength="500" required)= formData.comment
+
+        button(type="submit") Submit
+
+      h2 Recent Comments
+
+      if comments.length === 0
+        p No comments yet. Be the first to leave one.
+      else
+        each item in comments
+          .comment-card
+            .comment-header
+              strong= item.name
+              span.comment-time= item.displayTime
+            p.comment-body= item.comment
+
+      if totalPages > 1
+        .pagination
+          if currentPage > 1
+            a(href=`/reviews?page=${currentPage - 1}`) Previous
+
+          span Page #{currentPage} of #{totalPages}
+
+          if currentPage < totalPages
+            a(href=`/reviews?page=${currentPage + 1}`) Next
 
 
     .divider
-    
+
     footer.footer
       .footer-content
         p © 2026 Downtown Donuts

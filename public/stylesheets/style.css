@@ -214,3 +214,79 @@ hr.break{
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+/* REVIEWS PAGE */
+.page-content {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.comments-form {
+  margin-bottom: 2rem;
+}
+
+.comments-form div {
+  margin-bottom: 1rem;
+}
+
+.comments-form input,
+.comments-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+}
+
+.comments-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.message {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.message-error {
+  background: #ffe6e6;
+  color: #7a1111;
+}
+
+.message-success {
+  background: #e8f7e8;
+  color: #155724;
+}
+
+.comment-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-time {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
