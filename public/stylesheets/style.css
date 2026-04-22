@@ -3,14 +3,27 @@ body {
   margin: 0;
   font-family: sans-serif;
   background-color: #f7f7f7;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #000000;
 }
 
+h2 {
+  margin-top: 1px;
+}
+
+p {
+  font-size: larger;
+}
 .main-content, .menu, .reviews, .contacts {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50%;
+  margin: 0 auto;
 }
+
 
 /* Sections */
 .section-dark {
@@ -122,8 +135,6 @@ body {
 
 
 .menu table {
-  width: 60%;
-  margin: 0 auto;
   border-collapse: collapse;
 }
 
@@ -152,8 +163,54 @@ body {
 }
 
 .menu table tr td div {
-  justify-self: left;
+  justify-self: center;
   color: inherit;
   font-family: inherit;
   font-weight: inherit;
+}
+
+
+.footer {
+  width: 100%;
+  background-color: #0b2e26; /* match your dark theme */
+  color: #d8ab43;            /* same gold as logo */
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0.3rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+.divider {
+  height: 40px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.boxed-section {
+  border: #F7C64A;
+  border-radius: 2%;
+  border-style: none none solid none;
+  padding: 10px;
+}
+
+hr.break{
+  border: none;
+  height: 2px;
+  background-color: #F7C64A;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
