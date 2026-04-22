@@ -1,26 +1,55 @@
-/* Reset */
+/* Base */
 body {
   margin: 0;
-  font-family: sans-serif;
   background-color: #f7f7f7;
+  color: #000000;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  color: #000000;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
 }
 
 h2 {
   margin-top: 1px;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
 }
 
 p {
-  font-size: larger;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
 }
-.main-content, .menu, .reviews, .contacts {
+
+
+/* Main page width containers */
+.main-content,
+.menu,
+.reviews,
+.contacts {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: min(60%, 1000px);
   margin: 0 auto;
 }
 
@@ -35,6 +64,7 @@ p {
   background-color: #f7f7f7;
   padding: 1rem 1rem;
 }
+
 
 /* Logo container */
 .logo {
@@ -101,22 +131,25 @@ p {
 }
 
 
+/* Top navigation */
 .links {
   background-color: #0b2e26;
-  padding: 1rem 1rem;
-  border: 1px #F7C64A;
-  border-style: double none none none ;
+  padding: 1rem;
+  border-top: 3px double #F7C64A;
 }
+
 .links table {
-  width: 60%;
+  width: min(60%, 1000px);
   margin: 0 auto;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .links table td {
   width: 25%;
+  padding: 0;
   text-align: center;
-  padding: 1rem;
+  vertical-align: middle;
   background-color: #0b2e26;
   border: 1px dotted #F7C64A;
   color: #f7f7f7;
@@ -127,20 +160,24 @@ p {
 .links table td a {
   display: block;
   width: 100%;
-  height: 100%;
-  padding: 1rem;
-  text-decoration: none;
-  color: inherit;
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.25;
 }
 
 
+/* Menu page tables */
 .menu table {
+  width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .menu table td {
-  width: 33%;
+  width: 33.333%;
   text-align: center;
+  vertical-align: top;
   padding: 1rem;
   background-color: #f7f7f7;
   color: #000000;
@@ -152,9 +189,9 @@ p {
   justify-self: center;
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;  /* makes it a square */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 10%;
   text-decoration: none;
   color: inherit;
@@ -170,12 +207,34 @@ p {
 }
 
 
+/* Shared content pieces */
+.boxed-section {
+  width: 100%;
+  border-bottom: 2px solid #F7C64A;
+  border-radius: 0;
+  padding: 12px 10px;
+  margin-bottom: 1rem;
+}
+
+hr.break {
+  border: none;
+  height: 2px;
+  background-color: #F7C64A;
+  width: 100%;
+  margin: 0 auto 20px auto;
+}
+
+.divider {
+  height: 40px;
+}
+
+
+/* Footer */
 .footer {
   width: 100%;
-  background-color: #0b2e26; /* match your dark theme */
-  color: #d8ab43;            /* same gold as logo */
+  background-color: #0b2e26;
+  color: #d8ab43;
   padding: 2rem 1rem;
-  box-sizing: border-box;
 }
 
 .footer-content {
@@ -187,50 +246,24 @@ p {
 .footer p {
   margin: 0.3rem 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
-.divider {
-  height: 40px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.boxed-section {
-  border: #F7C64A;
-  border-radius: 2%;
-  border-style: none none solid none;
-  padding: 10px;
-}
-
-hr.break{
-  border: none;
-  height: 2px;
-  background-color: #F7C64A;
-  width: 60%;
-  margin: 0 auto;
-  margin-bottom: 20px;
+.footer a {
+  display: inline-block;
+  margin: 0.25rem 0.4rem;
 }
 
 
-
-
-
-
-
-
-/* REVIEWS PAGE */
+/* Reviews page */
 .page-content {
-  width: 90%;
-  max-width: 800px;
+  width: min(90%, 800px);
   margin: 2rem auto;
 }
 
 .comments-form {
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .comments-form div {
@@ -242,6 +275,7 @@ hr.break{
   width: 100%;
   box-sizing: border-box;
   padding: 0.75rem;
+  font: inherit;
 }
 
 .comments-form textarea {
@@ -266,17 +300,21 @@ hr.break{
 }
 
 .comment-card {
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .comment-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .comment-time {
@@ -289,4 +327,69 @@ hr.break{
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+
+/* Tablet */
+@media (max-width: 900px) {
+  .main-content,
+  .menu,
+  .reviews,
+  .contacts {
+    width: 80%;
+  }
+
+  .links table {
+    width: 80%;
+  }
+
+  .menu table td {
+    padding: 0.75rem;
+  }
+}
+
+
+/* Phone */
+@media (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  .main-content,
+  .menu,
+  .reviews,
+  .contacts {
+    width: 90%;
+  }
+
+  .links table {
+    width: 90%;
+  }
+
+  .links table td a {
+    padding: 0.75rem 0.35rem;
+    font-size: 0.9rem;
+  }
+
+  .menu table,
+  .menu table tbody,
+  .menu table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .menu table td {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .divider {
+    height: 24px;
+  }
+
+  .footer {
+    padding: 1.5rem 1rem;
+  }
 }

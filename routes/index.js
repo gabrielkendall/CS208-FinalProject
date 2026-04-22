@@ -67,7 +67,7 @@ router.get('/menu', function(req, res, next) {
 
 /* GET Contacts Page. */
 router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact Us' });
+  res.render('contact', { title: 'Contacts' });
 });
 
 /* GET Reviews page. */
@@ -80,7 +80,7 @@ router.get('/reviews', function(req, res, next) {
       if (countErr) {
         console.error('Error counting comments:', countErr);
         return res.status(500).render('reviews', {
-          title: 'Customer Comments',
+          title: 'Reviews',
           comments: [],
           currentPage: 1,
           totalPages: 1,
@@ -100,7 +100,7 @@ router.get('/reviews', function(req, res, next) {
           if (err) {
             console.error('Error fetching comments:', err);
             return res.status(500).render('reviews', {
-              title: 'Customer Comments',
+              title: 'Reviews',
               comments: [],
               currentPage: 1,
               totalPages: 1,
@@ -116,13 +116,13 @@ router.get('/reviews', function(req, res, next) {
           }));
 
           res.render('reviews', {
-            title: 'Customer Comments',
+            title: 'Reviews',
             comments,
             currentPage: page,
             totalPages,
             formData: { name: '', comment: '' },
             errorMessage: '',
-            successMessage: req.query.success ? 'Your comment was posted.' : ''
+            successMessage: /* req.query.success ? 'Your comment was posted.' :  */ ''
           });
         }
       );
@@ -130,7 +130,7 @@ router.get('/reviews', function(req, res, next) {
   } catch (error) {
     console.error('Error in reviews route:', error);
     res.status(500).render('reviews', {
-      title: 'Customer Comments',
+      title: 'Reviews',
       comments: [],
       currentPage: 1,
       totalPages: 1,
@@ -152,7 +152,7 @@ router.post('/reviews', function(req, res, next) {
 
   if (!name || !comment) {
     return res.status(400).render('reviews', {
-      title: 'Customer Comments',
+      title: 'Reviews',
       comments: [],
       currentPage: 1,
       totalPages: 1,
@@ -164,7 +164,7 @@ router.post('/reviews', function(req, res, next) {
 
   if (isLowQualityText(comment)) {
     return res.status(400).render('reviews', {
-      title: 'Customer Comments',
+      title: 'Reviews',
       comments: [],
       currentPage: 1,
       totalPages: 1,
@@ -176,7 +176,7 @@ router.post('/reviews', function(req, res, next) {
 
   if (name.length > MAX_NAME_LENGTH) {
     return res.status(400).render('reviews', {
-      title: 'Customer Comments',
+      title: 'Reviews',
       comments: [],
       currentPage: 1,
       totalPages: 1,
@@ -188,7 +188,7 @@ router.post('/reviews', function(req, res, next) {
 
   if (comment.length > MAX_COMMENT_LENGTH) {
     return res.status(400).render('reviews', {
-      title: 'Customer Comments',
+      title: 'Reviews',
       comments: [],
       currentPage: 1,
       totalPages: 1,
@@ -206,7 +206,7 @@ router.post('/reviews', function(req, res, next) {
         if (err) {
           console.error('Error adding comment:', err);
           return res.status(500).render('reviews', {
-            title: 'Customer Comments',
+            title: 'Reviews',
             comments: [],
             currentPage: 1,
             totalPages: 1,
@@ -222,12 +222,45 @@ router.post('/reviews', function(req, res, next) {
   } catch (error) {
     console.error('Error adding comment:', error);
     res.status(500).render('reviews', {
-      title: 'Customer Comments',
+      title: 'Reviews',
       comments: [],
       currentPage: 1,
       totalPages: 1,
       formData: { name, comment },
       errorMessage: 'Sorry, something went wrong submitting your comment.',
+      successMessage: ''
+    });
+  }
+});
+
+
+router.post('/clear', function(req, res, next) {
+  try {
+    req.db.query('TRUNCATE TABLE comments', (err, results) => {
+      if (err) {
+        console.error('Error clearing comments table:', err);
+        return res.status(500).render('reviews', {
+          title: 'Reviews',
+          comments: [],
+          currentPage: 1,
+          totalPages: 1,
+          formData: { name: '', comment: '' },
+          errorMessage: 'Sorry, the comments could not be cleared.',
+          successMessage: ''
+        });
+      }
+
+      res.redirect('/reviews?success=cleared');
+    });
+  } catch (error) {
+    console.error('Error clearing comments table:', error);
+    res.status(500).render('reviews', {
+      title: 'Reviews',
+      comments: [],
+      currentPage: 1,
+      totalPages: 1,
+      formData: { name: '', comment: '' },
+      errorMessage: 'Sorry, something went wrong clearing the comments.',
       successMessage: ''
     });
   }

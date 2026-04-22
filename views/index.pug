@@ -1,6 +1,6 @@
 extends layout
 
-//- Add a function to sonstruct the Logo
+//- Add a function to construct the Logo. Photoshop was used for pixel positions.
 mixin donutLogo(themeClass)
   .logo(class=themeClass)
     svg.logo-graphic(viewBox="0 0 400 260" aria-hidden="true")
@@ -42,7 +42,7 @@ block content
     section.section-dark
       +donutLogo('logo-dark')
 
-    //- Table of Links
+    //- Top Navigation Bar
     section.links 
       table
         tr
@@ -51,9 +51,9 @@ block content
           td 
             a(href="/menu") Menu
           td 
-            a(href="/contact") Contact Us
+            a(href="/contact") Contacts
           td 
-            a(href="/reviews") Customer Comments
+            a(href="/reviews") Reviews
 
     .divider
     //- Main content section ???
@@ -65,6 +65,9 @@ block content
       p Today, Downtown Donuts continues to do what it's always done: show up early, make donuts from scratch, and serve Boise one fresh batch at a time.
 
 
+
+
+    //- A space then the Footer.
     .divider
 
     footer.footer

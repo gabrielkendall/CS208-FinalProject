@@ -1,6 +1,6 @@
 extends layout
 
-//- Add a function to sonstruct the Logo
+//- Add a function to construct the Logo. Photoshop was used for pixel positions.
 mixin donutLogo(themeClass)
   .logo(class=themeClass)
     svg.logo-graphic(viewBox="0 0 400 260" aria-hidden="true")
@@ -42,7 +42,7 @@ block content
     section.section-dark
       +donutLogo('logo-dark')
 
-    //- Table of Links
+    //- Top Navigation Bar
     section.links 
       table
         tr
@@ -51,10 +51,11 @@ block content
           td 
             a(href="/menu") Menu
           td 
-            a(href="/contact") Contact Us
+            a(href="/contact") Contacts
           td 
-            a(href="/reviews") Customer Comments
+            a(href="/reviews") Reviews
 
+    .divider
     //- Main content section ???
     section.contacts
       h1 Where To Find Us
@@ -94,6 +95,9 @@ block content
 
 
 
+
+
+    //- A space then the Footer. Larger for asthetics.
     .divider
     .divider
 

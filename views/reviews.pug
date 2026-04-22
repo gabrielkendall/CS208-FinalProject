@@ -1,6 +1,6 @@
 extends layout
 
-//- Add a function to sonstruct the Logo
+//- Add a function to construct the Logo. Photoshop was used for pixel positions.
 mixin donutLogo(themeClass)
   .logo(class=themeClass)
     svg.logo-graphic(viewBox="0 0 400 260" aria-hidden="true")
@@ -42,7 +42,7 @@ block content
     section.section-dark
       +donutLogo('logo-dark')
 
-    //- Table of Links
+    //- Top Navigation Bar
     section.links 
       table
         tr
@@ -51,35 +51,50 @@ block content
           td 
             a(href="/menu") Menu
           td 
-            a(href="/contact") Contact Us
+            a(href="/contact") Contacts
           td 
-            a(href="/reviews") Customer Comments
+            a(href="/reviews") Reviews
 
-    //- Main content section ???
+    .divider
+    //- Main content section
     section.reviews
-      h1 Customer Comments
+      h1 Reviews
 
+      //- Display error message if applicable.
       if errorMessage
         .message.message-error= errorMessage
 
+      //- Display success message if applicable.
       if successMessage
         .message.message-success= successMessage
 
+      
+      //- Create form instance.
       form.comments-form(action="/reviews" method="POST")
+      
+        //- Form name field with a max length of 100 characters.
         div
           label(for="name") Name
           input#name(type="text" name="name" maxlength="100" value=formData.name required)
 
+        //- Form review field with a max length of 500 characters.
         div
           label(for="comment") Comment
           textarea#comment(name="comment" maxlength="500" required)= formData.comment
 
+        //- Submit button.
         button(type="submit") Submit
 
+
+      //- Viewable comments section.
       h2 Recent Comments
 
+      //- If no comments display such.
       if comments.length === 0
         p No comments yet. Be the first to leave one.
+
+      
+      //- Otherwise, loop through each entry in the comments table and display it.
       else
         each item in comments
           .comment-card
@@ -88,6 +103,8 @@ block content
               span.comment-time= item.displayTime
             p.comment-body= item.comment
 
+
+      //- Render pages of comments for ease of viewing
       if totalPages > 1
         .pagination
           if currentPage > 1
@@ -99,6 +116,7 @@ block content
             a(href=`/reviews?page=${currentPage + 1}`) Next
 
 
+    //- A space then the Footer.
     .divider
 
     footer.footer
@@ -109,3 +127,9 @@ block content
         p Find Us:
         a(href="http://www.doordash.com") Doordash
         a(href="http://www.ubereats.com") UberEats
+
+
+        form.comments-form(action="/clear" method="POST")
+          hr
+          div FOR TESTING ONLY!
+          button(type="submit") Clear All Comments

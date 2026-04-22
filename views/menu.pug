@@ -1,6 +1,6 @@
 extends layout
 
-//- Add a function to sonstruct the Logo
+//- Add a function to construct the Logo. Photoshop was used for pixel positions.
 mixin donutLogo(themeClass)
   .logo(class=themeClass)
     svg.logo-graphic(viewBox="0 0 400 260" aria-hidden="true")
@@ -42,7 +42,7 @@ block content
     section.section-dark
       +donutLogo('logo-dark')
 
-    //- Table of Links
+    //- Top Navigation Bar
     section.links 
       table
         tr
@@ -51,14 +51,16 @@ block content
           td 
             a(href="/menu") Menu
           td 
-            a(href="/contact") Contact Us
+            a(href="/contact") Contacts
           td 
-            a(href="/reviews") Customer Comments
+            a(href="/reviews") Reviews
 
-    //- Main content section ???
+    .divider
+    //- Main content section
     section.menu
       h1 Menu
 
+      //- A grid of 9 images with their corresponding alt text and descriptor.
       table
 
         //- Row 1
@@ -66,37 +68,48 @@ block content
           td 
             img(src="images/Bismark.jpg", alt="Bismark")
             div Bismark
+            div $2.75
           td 
             img(src="images/Fritter.jpg", alt="Fritter")
             div Fritter
+            div $3.25
           td 
             img(src="images/Beignet.jpg", alt="Beignet")
             div Beignet
+            div $2.50
 
         //- Row 2
         tr 
           td 
             img(src="images/Boston-cream-donut.jpg", alt="Boston Cream")
             div Boston Cream
+            div $2.85
           td 
             img(src="images/Bear-claw.jpg", alt="Bear Claw")
             div Bear Claw
+            div $3.50
           td 
             img(src="images/Paczki.jpg", alt="Paczki")
             div Paczki
+            div $3.75
 
         //- Row 3
         tr 
           td 
             img(src="images/Old-fashioned-donut.jpg", alt="Old Fashioned")
             div Old Fashioned
+            div $2.25
           td 
             img(src="images/Sugar-donut.jpg", alt="Sugar Dusted")
             div Sugar Dusted
+            div $2.00
           td 
             img(src="images/Donut-holes.jpg", alt="Donut Holes")
             div Donut Holes
-      
+            div $1.75 (per dozen)
+
+
+    //- A space then the Footer.
     .divider
 
     footer.footer
