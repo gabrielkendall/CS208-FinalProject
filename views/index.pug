@@ -39,8 +39,14 @@ block content
 
   body 
     //- Add logo as upper banner
-    section.section-dark
-      +donutLogo('logo-dark')
+    //- section.section-dark
+    //-   +donutLogo('logo-dark')
+
+    .section-dark
+      .logo.logo-dark-svg
+        img.logo-graphic(src="/images/Logo-Gold.svg" alt="")
+        h1.logo-name Downtown Donuts
+        p.logo-since Since 1992
 
     //- Top Navigation Bar
     section.links 
@@ -55,7 +61,9 @@ block content
           td 
             a(href="/reviews") Reviews
 
-    .divider
+    
+    section.section-light
+      +donutLogo('logo-light')
     //- Main content section ???
     section.main-content
       h1 Our Story

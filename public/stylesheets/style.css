@@ -43,13 +43,22 @@ p {
 /* Main page width containers */
 .main-content,
 .menu,
-.reviews,
 .contacts {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: min(60%, 1000px);
+  margin: 0 auto;
+}
+
+
+.reviews {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(30%, 1000px);
   margin: 0 auto;
 }
 
@@ -65,11 +74,16 @@ p {
   padding: 1rem 1rem;
 }
 
-
 /* Logo container */
 .logo {
   position: relative;
   width: 220px;
+  margin: 0 auto;
+}
+
+.section-light .logo {
+  position: relative;
+  width: 400px;
   margin: 0 auto;
 }
 
@@ -85,6 +99,20 @@ p {
   position: absolute;
   left: 50%;
   top: 78%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+
+  font-family: 'Italianno', cursive;
+  font-size: 3.45rem;
+  line-height: 1;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.logo-dark-svg .logo-name {
+  position: absolute;
+  left: 52%;
+  top: 75%;
   transform: translate(-50%, -50%);
   margin: 0;
 
@@ -105,23 +133,40 @@ p {
 
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* Subtitle */
+.logo-dark-svg .logo-since {
+  position: absolute;
+  left: 52%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   white-space: nowrap;
 }
 
 /* Color control via currentColor */
-.logo-dark {
+.logo-dark, .logo-dark-svg {
   color: #d8ab43; /* gold */
 }
 
-.logo-light {
+.logo-light, .logo-light-svg {
   color: #111111; /* black */
 }
 
 /* Apply color to text */
 .logo-dark .logo-name,
-.logo-dark .logo-since {
+.logo-dark .logo-since,
+.logo-dark-svg .logo-name,
+.logo-dark-svg .logo-since {
   color: #d8ab43;
 }
 
