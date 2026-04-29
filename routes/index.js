@@ -55,6 +55,7 @@ function formatTimestamp(dateString) {
   return posted.toLocaleString();
 }
 
+// All but the reviews page is static, so no need for anything but a render call.
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
@@ -70,11 +71,13 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contacts' });
 });
 
+// Reviews page contains the bulk of the page logic.
 /* GET Reviews page. */
 router.get('/reviews', function(req, res, next) {
   const page = Math.max(parseInt(req.query.page) || 1, 1);
   const offset = (page - 1) * COMMENTS_PER_PAGE;
 
+  // Load the comments
   try {
     req.db.query('SELECT COUNT(*) AS total FROM comments', (countErr, countResults) => {
       if (countErr) {
@@ -93,6 +96,7 @@ router.get('/reviews', function(req, res, next) {
       const totalComments = countResults[0].total;
       const totalPages = Math.max(Math.ceil(totalComments / COMMENTS_PER_PAGE), 1);
 
+      
       req.db.query(
         'SELECT id, name, comment, created_at FROM comments ORDER BY created_at DESC LIMIT ? OFFSET ?',
         [COMMENTS_PER_PAGE, offset],
@@ -141,6 +145,7 @@ router.get('/reviews', function(req, res, next) {
   }
 });
 
+// Fill in the page with appropriate formating and comment array
 router.post('/reviews', function(req, res, next) {
   const MAX_NAME_LENGTH = 100;
   const MAX_COMMENT_LENGTH = 500;
@@ -150,6 +155,7 @@ router.post('/reviews', function(req, res, next) {
   name = sanitizeInput(name);
   comment = sanitizeInput(comment);
 
+  // Clean up and verify submited comments
   if (!name || !comment) {
     return res.status(400).render('reviews', {
       title: 'Reviews',
@@ -198,6 +204,7 @@ router.post('/reviews', function(req, res, next) {
     });
   }
 
+  // Try to save the comment.
   try {
     req.db.query(
       'INSERT INTO comments (name, comment, created_at) VALUES (?, ?, NOW())',
@@ -233,7 +240,8 @@ router.post('/reviews', function(req, res, next) {
   }
 });
 
-
+// Clear all comments from database with a button at bottom of the page.
+// Kept in final product for ease of testing.
 router.post('/clear', function(req, res, next) {
   try {
     req.db.query('TRUNCATE TABLE comments', (err, results) => {
