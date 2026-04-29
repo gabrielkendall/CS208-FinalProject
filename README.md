@@ -78,6 +78,7 @@ npm start
 - I wanted to have the logo within a top Banner and have some suplamental information in a Footer. This make the content feel enclosed and as if it wer eemphesised abd important.
 - Every text should be centered on the page for ease of viewing. This also is were the eye is naturally drawn when opening a page. The sides of the page are not used to limit necessary eye movment.
 - Line dividers were used to separate information within the pages, unless enough of a gap was sufficient. Lines were not used on the menu as it would feel more rigid and less homey. They were however used on the contacts page to form distink sections.
+- Each piece of information is separated in some way, and the images have rounded corners to reduce overall page harshness.
 
 ## Edge Cases
 - If the input is not a string
@@ -117,4 +118,5 @@ npm start
 
 ## Challenges & Learnings
 - It was challenging to draw the Logo without a starter file, and as i did not know how to just import an svg into the page, I started with writing individual coordinate lines and arcs and positioning the text with CSS. I have since moved to using an SVG file for the graphic, but have included my old version for frame of referance.
-- 
+- Getting the phone implementation to work was quite a pain. I will admit that i used AI to clean up my messy code after i got it working. It was quite the jumble of code.
+- The database was also hard to wrap my hear around. I am use to using Java, which was my first language, so not having instantiated static variables was tricky.
